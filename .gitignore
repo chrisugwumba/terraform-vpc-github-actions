@@ -1,0 +1,41 @@
+# Local .terraform directories (contains provider plugins and modules)
+.terraform/
+
+# Hide internal Terraform lock file changes (optional but recommended if you want to enforce strict versioning via CI/CD)
+# .terraform.lock.hcl
+
+# Local state files 
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Exclude all variable files containing sensitive data
+*.tfvars
+*.tfvars.json
+
+# Override files (used for local tweaks)
+_override.tf
+_override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Include override files for CLI variables
+.terraformrc
+terraform.rc
+
+# --- Common Cloud Provider Credentials & Logs ---
+# AWS local credentials/config caches
+.aws/
+
+# Azure CLI account tokens/caches
+.azure/
+
+# Google Cloud SDK configurations
+.gcloud/
+
+# Developer-specific environment files
+.env
+.env.*
