@@ -3,8 +3,8 @@ run-name: ${{ github.actor }} has triggered the Pipeline
 
 on: 
   push:
-    branch:  
-      - 'main'
+    branches: 
+      - main
 
 env:
   AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
