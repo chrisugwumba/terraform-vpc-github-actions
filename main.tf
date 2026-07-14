@@ -9,7 +9,8 @@ module "sg" {
   source = "./modules/sg"
   vpc_id = module.vpc.vpc_id
 }
-/*
+
+# Provision the EC2 instance using t3.micro
 
 module "ec2" {
   source  = "./modules/ec2"
@@ -18,6 +19,8 @@ module "ec2" {
 
 }
 
+#Updated the application load balancer for the websight
+
 module "alb" {
   source    = "./modules/alb"
   sg_id     = module.sg.sg_id
@@ -25,4 +28,3 @@ module "alb" {
   vpc_id    = module.vpc.vpc_id
   instances = module.ec2.instance_ids
 }
-*/
