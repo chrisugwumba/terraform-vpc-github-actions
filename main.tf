@@ -9,7 +9,8 @@ module "sg" {
   source = "./modules/sg"
   vpc_id = module.vpc.vpc_id
 }
-/*
+
+# Provision the EC2 instance using t3.micro
 
 module "ec2" {
   source  = "./modules/ec2"
@@ -17,6 +18,8 @@ module "ec2" {
   subnets = module.vpc.subnet_id
 
 }
+
+/*
 
 module "alb" {
   source    = "./modules/alb"
