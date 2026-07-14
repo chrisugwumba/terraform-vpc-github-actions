@@ -4,12 +4,12 @@ module "vpc" {
   subnets_cidr = var.subnets_cidr
 }
 
-/*
+# This is the security group main parent module
 module "sg" {
   source = "./modules/sg"
   vpc_id = module.vpc.vpc_id
 }
-
+/*
 
 module "ec2" {
   source  = "./modules/ec2"
