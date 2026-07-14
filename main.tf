@@ -19,7 +19,7 @@ module "ec2" {
 
 }
 
-/*
+#Updated the application load balancer for the websight
 
 module "alb" {
   source    = "./modules/alb"
