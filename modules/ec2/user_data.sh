@@ -1,4 +1,6 @@
 #!/bin/bash
+# This is a simple bashscript that installs and update an apache server using
+# using the amazon linux 2 machine image
 # Update the system
 yum update -y
 

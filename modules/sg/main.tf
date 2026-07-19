@@ -1,3 +1,6 @@
+# Creates an AWS Security Group and its associated ingress/egress rules to 
+# manage network traffic, allowing open HTTP access, SSH access, and unrestricted outbound traffic.
+
 resource "aws_security_group" "sg" {
   name        = "security_group"
   description = "Allow HTTP and SHH inbound traffic and all outbound traffic"
