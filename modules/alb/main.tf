@@ -6,11 +6,18 @@ resource "aws_lb" "alb" {
   security_groups    = [var.sg_id]
   subnets            = var.subnets
 
-  enable_deletion_protection = false
+  # the alb attribute below prevents the accidental deletion of a load balancer when set to true
+  # this is particularly useful in a production environment to prevent the accidental overloading of the 
+  # service due to ALB downtime.
+  # Here this is set to false because this particular environment is for dev or test where downtime tolerance is acceptable
+
+  enable_deletion_protection = false 
 }
 
 
 # Creating a Target Group  for the listener
+# Configures a logical target pool on port 80 to receive HTTP traffic 
+# routing from an Application Load Balancer within the specified VPC.
 resource "aws_lb_target_group" "alb_TG" {
   name     = "Alb-tg"
   port     = 80
@@ -19,8 +26,8 @@ resource "aws_lb_target_group" "alb_TG" {
 }
 
 
-
-# Listener
+# Sets up a load balancer listener that monitors incoming public HTTP traffic on 
+# port 80 and automatically forwards those requests directly to your Target Group.
 resource "aws_lb_listener" "listener" {
   load_balancer_arn = aws_lb.alb.arn
   port              = "80"
@@ -38,6 +45,8 @@ resource "aws_lb_listener" "listener" {
 
 
 #Target Group Attachment
+# Dynamically loops through 'var.instances' to attach every EC2 instance 
+# in the list to the Application Load Balancer's Target Group pool.
 resource "aws_lb_target_group_attachment" "tga" {
   count            = length(var.instances)
   target_group_arn = aws_lb_target_group.alb_TG.arn

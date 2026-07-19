@@ -1,3 +1,8 @@
+#Creating an ec2 instance with the lenght parameter
+# Deploys a dynamic number of public t3.micro EC2 instances.
+# Loops through 'var.ec2_names' to assign unique names, subnets, and 
+# Availability Zones to each instance, and executes a local startup script.
+
 resource "aws_instance" "web" {
   count                       = length(var.ec2_names)
   ami                         = data.aws_ami.amazon-2.id

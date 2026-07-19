@@ -1,4 +1,5 @@
-# VPC
+
+# VPC Provisioning
 resource "aws_vpc" "my_vpc" {
   cidr_block       = var.vpc_cidr
   instance_tenancy = "default"
@@ -10,7 +11,7 @@ resource "aws_vpc" "my_vpc" {
 
 }
 
-# Subnets
+# Subnets Declarations
 resource "aws_subnet" "subnets" {
   count                   = length(var.subnets_cidr)
   vpc_id                  = aws_vpc.my_vpc.id

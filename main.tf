@@ -4,13 +4,13 @@ module "vpc" {
   subnets_cidr = var.subnets_cidr
 }
 
-# This is the security group main parent module
+# This is the security group main parent module (iNgres and egress rule)
 module "sg" {
   source = "./modules/sg"
   vpc_id = module.vpc.vpc_id
 }
 
-# Provision the EC2 instance using t3.micro
+# This is the ec2 parent module that references the ec2 child module
 
 module "ec2" {
   source  = "./modules/ec2"

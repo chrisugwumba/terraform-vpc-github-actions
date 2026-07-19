@@ -1,3 +1,6 @@
+# Input variables that pass the required Security Group ID, target subnet IDs, 
+# and custom server names into the EC2 instance configuration.
+
 variable "sg_id" {
   description = "SG id for ec2"
   type        = string
